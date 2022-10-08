@@ -36,3 +36,97 @@
     transform: rotate(360deg);
   }
 }
+
+
+.Navbar{
+ height: 2rem;
+ height: fit-content;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  position: sticky;
+  padding: 1rem;
+   
+}
+
+
+.pageheader{
+  background-color: aquamarine;
+  padding: 2rem;
+}
+
+.productcard{
+  
+  margin: 1rem;
+  
+}
+
+.productlist{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.addedtocart{
+  background-color: white;
+  width: 80%;
+  min-height: 10rem;
+  margin: 2rem;
+}
+
+
+.contactusform{
+  border: 2px solid;
+  width: 300px;
+  border-radius: 1rem;
+  height: max-content;
+  min-width: fit-content;
+  margin: 3rem;
+  padding: 2rem;
+  background-color: rgb(249, 242, 242);
+  
+}
+
+.routes{
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.searchbar{
+  border: solid;
+}
+
+
+.ttt{
+  margin-top: 20px;
+}
+
+.paperapp{
+  padding: 2rem;
+}
+
+.ttt{
+  border: solid 2px;
+}
+
+.quantity{
+  border: 2px solid;
+  background-color: rgb(246, 210, 128);
+}
