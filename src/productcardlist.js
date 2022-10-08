@@ -7,8 +7,6 @@ export default function ProductList() {
 
   
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
  
   
   useEffect(() => {
@@ -24,13 +22,10 @@ export default function ProductList() {
         }
         let actualData = await response.json();
         setData(actualData.data);
-        setError(null);
+        
       } catch(err) {
-        setError(err.message);
         setData(null);
-      } finally {
-        setLoading(false);
-      }  
+      } 
     }
     getData()
   }, [])
