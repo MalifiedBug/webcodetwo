@@ -13,7 +13,6 @@ export default function ProductCard({img, name, hour, price}){
 const [toggle, setToggle] = useState(true)
 
 
-const [buttonn, setButtonn ] = useState(<button>Add to Cart</button>)
 
 const togglee =()=>{
     setToggle(!toggle);

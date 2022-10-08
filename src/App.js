@@ -1,13 +1,11 @@
 import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Nav from './navbar';
 import Products from './products';
-import ContactUs from './contactus';
 import Cart from './cart';
 import Header from './pageheader';
 import Checkout from './checkout';
 import { BasicForm } from './contactus';
-import ScrollTop from './scrolltop'
 import Paper from '@mui/material/Paper';
 
 
