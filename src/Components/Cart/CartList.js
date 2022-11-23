@@ -5,8 +5,7 @@ import * as React from 'react';
 
 import { useState, useEffect } from 'react';
 
-import  Product from './Product';
-
+import CartCard from './CartCard';
 
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -63,28 +62,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-const rurl = "https://632464475c1b435727a76571.mockapi.io/rental"
+const rurl = "https://632464475c1b435727a76571.mockapi.io/rental-cart"
 
 
-export default function Products() {
-
-  const [category, setCategory] = React.useState('');
-
-  
+export default function CartList() {
 
   const[data,setData] = useState([]);
 
-
-  const [search, setSearch] = useState("")
-
-
-
-  const filteredArray = data.filter((dat)=>dat.name.toLowerCase().split(" ").join("").includes(search.toLowerCase()))
-
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-    setSearch(event.target.value)
-  };
 
   useEffect(()=>{
     
@@ -107,49 +91,22 @@ export default function Products() {
 
   return (
     <div>
-      <h2>Welcome to our Products Page</h2>
+      <h2>Welcome to Cart</h2>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar sx={{ bgcolor: "white" }} position="static">
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Category</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={category}
-                  label="Category"
-                  onChange={(e)=>{handleChange(e)}}
-                >
-                  <MenuItem value="Biking">Biking</MenuItem>
-                  <MenuItem value="Camping">Camping</MenuItem>
-                  {/* <MenuItem value={30}>Trekking</MenuItem> */}
-                </Select>
-                {console.log({ category })}
-              </FormControl>
-            </Box>
-            <Search sx={{ bgcolor: "#edf2ff", color: "black" }}>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Search..."
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
+                
           </Toolbar>
         </AppBar>
       </Box>
 
       <div className="allproducts">
-        {filteredArray.map((res) => (
-          <Product prod={res} />
+        {data.map((res) => (
+          <CartCard prod={res} />
         ))}
 
-        {/* {data.map((dat) => (
-          <Product prod={dat} />
-        ))} */}
+        <button style={{margin:"1rem"}}>Proceed to Checkout</button>
+       
       </div>
     </div>
   );

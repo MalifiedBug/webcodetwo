@@ -15,11 +15,10 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import { Products } from './Components/Products/Products';
+import  Products  from './Components/Products/Products';
 import {ContactUs} from './Components/ContactUs/ContactUs';
 import { AddProduct } from './Components/AddProduct/AddProduct';
-import Cart from './Components/Cart/Cart';
-
+import CartList from './Components/Cart/CartList';
 
 
 const pages = ['Home', 'Products','Cart', 'Contact Us', 'Add product'];
@@ -180,7 +179,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/products" element={<Products/>}/>
-      <Route path="/cart" element={<Cart/>}/>
+      <Route path="/cart" element={<CartList/>}/>
       <Route path="/contactus" element={<ContactUs/>}/>
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/account" element={<Account/>}/>
