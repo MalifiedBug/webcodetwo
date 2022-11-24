@@ -4,6 +4,7 @@ import { BasicRating } from './BasicRating';
 
 export default function Product({ prod }) {
 
+
   return (
     <div className='productcard'>
       <div>
@@ -12,7 +13,7 @@ export default function Product({ prod }) {
       <div style={{ paddingLeft: "1rem", paddingRight: "1rem", textAlign: "start" }} className='productsponsortag'>
         <div>{prod.issponsored ? <p><u>sponsored❕</u></p> : null}</div>
         <div>
-          <Buttons prod={prod}  />
+          <Buttons prod={prod} />
         </div>
       </div>
       <div style={{ paddingLeft: "1rem", paddingRight: "1rem" }} className='productname'>

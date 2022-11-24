@@ -1,9 +1,13 @@
 import * as React from 'react';
-import { useState } from 'react';
 
 export default function CartCard({ prod }) {
 
-  const[inc, setInc] = useState(0);
+  async function deleteItem(){
+    await fetch(`https://632464475c1b435727a76571.mockapi.io/rental-cart/${prod.id}`, {
+      method: 'DELETE'     
+    })
+      
+  }
 
   return (
     <div className='productcard'>
@@ -12,11 +16,7 @@ export default function CartCard({ prod }) {
       </div>
       <div style={{ paddingLeft: "1rem", paddingRight: "1rem", textAlign: "start" }} className='productsponsortag'>
         <div>{prod.issponsored ? <p><u>sponsored❕</u></p> : null}</div>
-        <div style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr"}}>
-            <button onClick={()=>setInc(inc-1)} style={{width:"2rem", height:"1rem"}}>-</button>
-            <input min={0} value={inc>=0?inc:0} max={prod.quantity} type="number" style={{width:"3rem", height:"1rem"}}></input>
-            <button onClick={()=>setInc(inc+1)} style={{width:"2rem", height:"1rem"}}>+</button>
-        </div>
+        
       </div>
       <div style={{ paddingLeft: "1rem", paddingRight: "1rem" }} className='productname'>
         <h3>{prod.name}</h3>
@@ -43,13 +43,15 @@ export default function CartCard({ prod }) {
       <div style={{ textAlign: "start", paddingLeft: "1rem", paddingRight: "1rem" }} className='productestimatedelivery'>
         <p>Get it by <b>{prod.deliverydate}</b></p>
       </div>
+      <h1>Quantity: {prod.need}</h1>
       <div style={{ textAlign: "start", paddingLeft: "1rem", paddingRight: "1rem" }} className='productrating'>
-        {inc>=0?<h3>
+        {prod.need>=0?<h3>
           Sub-Total : ₹ {
-            (prod.discount) !== 0 ? ((prod.mrp) * (100-(prod.discount))/100)*inc : (inc*prod.mrp)
+            (prod.discount) !== 0 ? ((prod.mrp) * (100-(prod.discount))/100)*prod.need : (prod.need*prod.mrp)
           }
         </h3>:<h3 style={{color:"red"}}>Enter a valid quantity</h3>}
       </div>
+      <button onClick={async(e)=>{e.preventDefault(); alert(prod.id); await deleteItem(); (setTimeout(window.location.reload(), 4000))}}>delete</button>
     </div>
   );
 }

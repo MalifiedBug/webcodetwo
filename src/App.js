@@ -19,6 +19,7 @@ import  Products  from './Components/Products/Products';
 import {ContactUs} from './Components/ContactUs/ContactUs';
 import { AddProduct } from './Components/AddProduct/AddProduct';
 import CartList from './Components/Cart/CartList';
+import Checkout from './Components/Cart/Checkout';
 
 
 const pages = ['Home', 'Products','Cart', 'Contact Us', 'Add product'];
@@ -186,6 +187,7 @@ function App() {
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/addproduct" element={<AddProduct/>}/>
       <Route path="*" element={<NotFound />}/>
+      <Route path="/checkout" element={<Checkout />}/>
     </Routes>
     </div>   
     

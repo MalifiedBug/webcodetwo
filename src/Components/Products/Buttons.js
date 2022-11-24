@@ -23,9 +23,10 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 export default function Buttons({ prod }) {
   const [fav, setFav] = useState(false);
   const [cart, setCart] = useState(false);
-  const {name, mrp, available,quantity} = prod
+  const [need, setNeed] = useState(0)
 
   const [open, setOpen] = React.useState(false);
+  const {name, mrp, discount,quantity, available} = prod;
 
   const handleClick = () => {
     setOpen(true);
@@ -45,6 +46,11 @@ export default function Buttons({ prod }) {
       {/* <IconButton aria-label="delete">
               <DeleteIcon />
             </IconButton> */}
+        <div style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr"}}>
+            <button onClick={()=>setNeed(need-1)} style={{width:"2rem", height:"1rem"}}>-</button>
+            <input min={0} value={need>=0?need:0} max={prod.quantity} type="number" style={{width:"3rem", height:"1rem"}}></input>
+            <button onClick={()=>setNeed(need+1)} style={{width:"2rem", height:"1rem"}}>+</button>
+        </div>
       <IconButton id={prod.id} onClick={() => { setFav(!fav); }} color="error" aria-label="add to fav">
         {fav ? <FavoriteIcon /> : <FavoriteBorderIcon />}
       </IconButton>
@@ -56,7 +62,14 @@ export default function Buttons({ prod }) {
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify(prod)
+  body: JSON.stringify({
+    name: name,
+    discount: discount,
+    quantity:quantity,
+    mrp:mrp,
+    available:available,
+    need:need,
+  })
 })
   .then(()=>console.log("data sent"))
       }} color="primary" aria-label="add to shopping cart">

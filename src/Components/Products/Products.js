@@ -70,6 +70,8 @@ export default function Products() {
 
   const [category, setCategory] = React.useState('');
 
+
+
   
 
   const[data,setData] = useState([]);
@@ -144,9 +146,8 @@ export default function Products() {
 
       <div className="allproducts">
         {filteredArray.map((res) => (
-          <Product prod={res} />
+          <Product prod={res}  />
         ))}
-
         {/* {data.map((dat) => (
           <Product prod={dat} />
         ))} */}
